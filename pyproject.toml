@@ -9,10 +9,9 @@ dependencies = []
 [project.scripts]
 dawn = "dawn.__main__:main"
 
-[tool.uv]
-package = true
+[build-system]
+requires = ["hatchling>=1.0.0"]
+build-backend = "hatchling.build"
 
 [dependency-groups]
-dev = [
-    "pytest>=8.4.0",
-]
+dev = ["pytest>=8.4.0"]

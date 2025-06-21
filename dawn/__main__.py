@@ -1,6 +1,6 @@
 from dawn.args import Args
 
-from dawn.tokens.tokenizer import Tokenizer
+from dawn.tokens import Tokenizer
 
 
 def main() -> None:
