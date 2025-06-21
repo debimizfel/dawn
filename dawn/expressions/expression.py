@@ -36,21 +36,26 @@ class NumberLiteral(Expression[float]):
 
 
 @dataclass
-class AddOperation(Expression[float]):
+class Addition(Expression[float]):
     left: Expression[float]
     right: Expression[float]
 
     @classmethod
     @override
-    def parse(cls, tokens: Iterator[Token]) -> AddOperation:
+    def parse(cls, tokens: Iterator[Token]) -> Addition:
         token = next(tokens)
         assert token.kind == TokenKind.OPERATOR
         assert token.value == "add"
 
         left = create_expression(tokens)
         right = create_expression(tokens)
-        return AddOperation(left, right)
+        return Addition(left, right)
 
     @override
     def evaluate(self) -> float:
         return self.left.evaluate() + self.right.evaluate()
+
+
+#! HOMEWORK:
+#! - create expressions Subtraction, Multiplication, Divistion, Negation
+#! - put each expression in its own file
