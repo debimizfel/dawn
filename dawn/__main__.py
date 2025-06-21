@@ -17,8 +17,8 @@ def main() -> None:
     # ^  sub 7 8 ...'
 
     with args.prog.open() as f:
-        tokenizer = Tokenizer(f)
-        for token in tokenizer:
+        token_stream = Tokenizer(f)
+        for token in token_stream:
             print(token)
 
 
