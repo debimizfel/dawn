@@ -4,7 +4,9 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "more-itertools>=10.7.0",
+]
 
 [project.scripts]
 dawn = "dawn.__main__:main"
@@ -15,3 +17,6 @@ build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = ["pytest>=8.4.0"]
+
+[tool.mypy]
+strict = true

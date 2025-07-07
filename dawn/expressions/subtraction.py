@@ -8,9 +8,10 @@ from .expression import Expression
 
 
 @dataclass
-class NumberLiteral(Expression[float]):
-    value: float
+class Subtraction(Expression[float]):
+    left: Expression[float]
+    right: Expression[float]
 
     @override
     def evaluate(self) -> float:
-        return self.value
+        return self.left.evaluate() - self.right.evaluate()

@@ -8,9 +8,9 @@ from .expression import Expression
 
 
 @dataclass
-class NumberLiteral(Expression[float]):
-    value: float
+class Negation(Expression[float]):
+    operand: Expression[float]
 
     @override
     def evaluate(self) -> float:
-        return self.value
+        return -self.operand.evaluate()
