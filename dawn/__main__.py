@@ -1,5 +1,6 @@
 from dawn.args import Args
 
+from dawn.expressions.create_expression import expression
 from dawn.tokens import Tokenizer
 
 
@@ -17,9 +18,13 @@ def main() -> None:
     # ^  sub 7 8 ...'
 
     with args.prog.open() as f:
-        token_stream = Tokenizer(f)
-        for token in token_stream:
-            print(token)
+        tokens = Tokenizer(f)
+        while True:
+            try:
+                expr = expression(iter(tokens))
+                print(expr.evaluate())
+            except StopIteration:
+                break
 
 
 if __name__ == "__main__":
